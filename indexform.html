@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+</head>
+<body>
+
+  <style type="text/css">
+    /* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;515;600;700&display=swap');
+:root {
+  font-size: 16px;
+}
+
+/* 
+*, ::before, ::after {
+  box-sizing: inherit;
+} */
+
+
+
+/*inicio*/
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+}
+
+
+legend{
+      margin: auto;
+}
+
+span{
+  font-weight: 400;
+  font-size: 10px;
+}
+
+h2{
+    margin: 0;
+    padding-bottom: 15px;
+    font-weight: 600;
+}
+
+h3{
+  margin: 2px 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.container-sub-foto input {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    opacity: 0.01;
+}
+
+.container-sub-foto{
+  display: flex;
+}
+
+.container-sub-foto label {
+    background: #32ceaf;
+    padding: 10px 30px;
+    color: #fff;
+    font-size: .9em;
+    transition: all .4s;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.container-sobre-mi-espacio{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'tipo-vehiculo tipo-vehiculo'
+                        'cantidad-espacio foto'
+                        'distrito ubicacion'
+                        'tamano tamano'; 
+  grid-gap: 10px; 
+}
+
+.tipo-vehiculo{
+  grid-area: tipo-vehiculo;
+}
+
+.cantidad-espacio{
+  grid-area: cantidad-espacio;
+}
+.foto{
+  grid-area: foto;
+}
+
+.distrito{
+  grid-area: distrito;
+}
+
+.ubicacion{
+  grid-area: ubicacion;
+}
+.tamano{
+  grid-area: tamano;
+}
+
+/* fin switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #32ceaf;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*fin switch*/
+.grid-form-img{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.slide-img{
+    background-image: url('img/fondo-edit2.png');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form-item-title {
+  padding-bottom: 10px;
+  display: grid
+
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #777777;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+   outline: none;
+}
+
+.form-item-title span{
+  font-size: 10px;
+
+}
+
+.container-info{
+  padding: 5px 0;
+}
+
+
+.container-sub-tipo-vehiculo, .container-sub-tamaño, .container-sub-horario, .container-sub-cubierta, .container-sub-ingreso, .container-sub-tipo-espacio {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type="checkbox"][id^="myvehiculo"], input[type="radio"][id^="myhorario"], input[type="radio"][id^="myEspacio"] {
+    display: none !important;
+}
+
+:checked + label:before {
+    content: "✓";
+    background-color: #21dfff;
+    transform: scale(1);
+}
+
+
+:checked + label img {
+    transform: scale(0.9);
+    /* box-shadow: 0 0 5px #333; */
+    /* z-index: -1; */
+}
+
+label img {
+    height: 70px;
+    width: 70px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+}
+
+label:before {
+    color: white;
+    content: " ";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #21dfff;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+:checked + label {
+    border: 1px solid #21dfff;
+}
+
+.container-sub-tipo-vehiculo label, .container-sub-tipo-espacio label, .container-sub-horario label {
+    padding: 15px;
+    position: relative;
+    margin: 0px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    font-size: 12px;
+}
+
+
+.container-sobre-mi{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'input-nombre input-apellidos'
+                        'input-email input-celular'
+                        'input-contrasena input-repite-contrasena'; 
+  grid-gap: 10px;                                  
+}
+
+
+
+/*Fin*/
+
+
+
+
+
+
+/* form fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: auto;
+  border: none;
+  min-inline-size: 100%;
+}
+
+form fieldset legend {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-align: center
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+} */
+
+input,
+textarea,
+select,
+button {
+  display: block;
+  padding: 5px 10px;
+  width: -webkit-fill-available;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+button {
+  display: inline-block;
+  width: auto;
+}
+
+ul, ol {
+  margin: 0 0 15px 25px;
+  padding: 0;
+}
+
+ul li, ol li {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+    Styles
+*/
+
+
+h1 {
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+button {
+  padding: 10px 15px;
+    color: #ffffff;
+    background-color: #0accec;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.text-right {
+  text-align: right;
+}
+
+.form-wizard {
+/*     max-width: 450px;
+    width: 100%; */
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 5px 2px 25px -5px rgba(0, 0, 0, 0.13);
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+.step {
+/* display: none; */ 
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: left center;
+    
+    height: 0;
+}
+
+.step.is-active {
+  /* display: block;  */
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1);
+    height: auto;
+    transition: all ease 1s;
+}
+
+
+
+.input-group {
+}
+
+.input-group.has-error .form-control {
+  border-color: #ff3355;
+}
+
+
+
+.btn-prev {
+  display: none;
+}
+
+.btn-prev.is-active {
+  display: inline-block;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #dfdee2;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transform: scaleX(0.01);
+          transform: scaleX(0.01);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+.background-fondo-progress{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 5px;
+    width: 100%;
+    position: absolute;
+}
+
+.item-progress{
+  background: #ccc7c7;
+  height: 5px;
+}
+
+
+.container-progress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.container-form{
+  display: grid;
+  grid-gap:15px;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 900px) {
+  .grid-form-img {
+    grid-template-columns: 1fr;
+}
+
+.container-slide-image{
+  display: none;
+}
+  
+}
+  </style>
+
+
+<div class="grid-form-img">
+  
+
+  <div class="wrapper">
+
+    <form action="/" method="get" id="form_wizard_1" class="form-wizard js-form-wizard" novalidate>
+      <div class="container-form">
+        
+        <div  class="container-progress" >
+          <div class="background-fondo-progress">
+            <div class="item-progress"> </div>
+            <div class="item-progress"></div>
+            <div class="item-progress"></div>
+          </div>  
+          <div class="progress-bar js-progress-bar"></div>
+        </div>
+          <div>
+
+              <fieldset class="step js-step">
+                <legend><h2>Sobre mi espacio</h2></legend>
+
+                <div class="container-sobre-mi-espacio">
+                      
+                    
+                    <div class="container-info tipo-vehiculo">
+                      <div class="form-item-title">
+                        <!-- <h3>Tipo de vehiculo:</h3> -->
+                        <h3>Que tipo de vehiculo aceptas.</h3>
+                      </div>
+                      <div class="container-sub-tipo-vehiculo">
+                          <div class="item-tipo-vehiculo">
+                            <input class="form-control" type="checkbox" id="myvehiculo1" name="tipo_vehiculo[]" checked="" value="bicicleta"><label for="myvehiculo1"><img src="img/bici.png" alt=""></label>
+                            
+                          </div>  
+                          <div class="item-tipo-vehiculo">
+                            <input class="form-control" type="checkbox" id="myvehiculo2" name="tipo_vehiculo[]" value="auto"><label for="myvehiculo2"><img src="img/auto.png" alt=""></label>
+                          </div> 
+                          <div class="item-tipo-vehiculo">                
+                            <input class="form-control" type="checkbox" id="myvehiculo3" name="tipo_vehiculo[]" value="motocicleta"><label for="myvehiculo3"><img src="img/moto.png  " alt=""></label>
+                          </div> 
+                      </div>
+                      
+                    </div>
+
+                    <div class="container-info cantidad-espacio">
+                      <div class="form-item-title">
+                        <!-- <h3>Cantidad de espacio:</h3> -->
+                        <h3>Indica cuantos espacios tienes.</h3>
+                      </div>
+                      <div class="container-sub-cantidad-espacio">
+                        <input onkeyup="validateCantidadEspacio()" class="form-control" type="number" id="cantidadEspacio" name="cantidad_espacio" min="1" max="100" placeholder="Cantidad de espacio" value="">
+                        <span class="helper-text"></span>
+
+                      </div>
+                      
+                    </div>
+
+                    <div class="container-info distrito">
+                      <div class="form-item-title">
+                        <!-- <h3>Cantidad de espacio:</h3> -->
+                        <h3>En que distrito?</h3>
+                      </div>
+                      <div class="container-sub-distrito">
+                        <select class="form-control" name="distrito" id="distrito">
+                          <option value="volvo">Volvo</option>
+                          <option value="saab">Saab</option>
+                          <option value="mercedes">Mercedes</option>
+                          <option value="audi">Audi</option>
+                        </select>
+                        <span class="helper-text"></span>
+
+                      </div>
+                    </div>
+
+
+                    <div class="container-info ubicacion">
+                      <div class="form-item-title">
+                        <!-- <h3>Cantidad de espacio:</h3> -->
+                        <h3>Ubicación.</h3>
+                      </div>
+                      <div class="container-sub-ubicacion">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="helper-text"></span>
+
+                      </div>
+                      
+                    </div>
+
+                    <div class="container-info foto">
+                      <div class="form-item-title">
+                        <h3>Foto de su parkeadero.</h3>
+                      </div>
+                      <div class="container-sub-foto ">
+                          <input class="form-control" type="file" accept="images/*" id="foto_espacio1" name="foto_espacio1" value="" placeholder=""><label for="foto_espacio1">Seleccionar imagen</label>
+                      </div>
+                    </div> 
+
+                    <div class="container-info tamano">
+                      <div class="form-item-title">
+                        <!-- <h3>Tamaño de vehiculo:</h3> -->
+                        <h3>Indica de que tamaño es.</h3>
+                      </div>
+                      <div class="container-sub-tamaño">
+                        <label class="radio"><input class="form-control" type="radio" name="tamano" value="pequeño" id="pequeño" placeholder="" checked=""> <span>Pequeño</span></label>
+                        <label class="radio"><input class="form-control" type="radio" name="tamano" value="mediano" id="mediano" placeholder=""> <span>Mediano</span></label>
+                        <label class="radio"><input class="form-control" type="radio" name="tamano" value="grande" id="grande" placeholder=""> <span>Grande</span></label>
+                        <span id="mensajeTamanoRadio"></span>
+                      </div>
+                      
+                    </div> 
+
+              </fieldset>
+
+
+              <fieldset class="step js-step">
+                <legend><h2>Disponibilidad/Horario</h2></legend>
+                <div class="container-info">
+                    <div class="form-item-title">
+                      <h3>¿Desde que fecha esta disponible?.</h3>
+                    </div>
+                    <div class="container-sub-disponibilidad">
+                        <input onkeyup="validateFecha()" id="fecha" placeholder="fecha" class="form-control" type="date" name="disponibilidad" style="border-color: rgb(33, 223, 255);">
+                        <span class="helper-text"></span>
+                    </div>
+                </div>
+                <div class="container-info">
+                    <div class="form-item-title">
+                      <h3>¿En que horario se puede parkear?.</h3>
+                    </div>
+                    <div class="container-sub-horario">
+                        <input class="form-control" type="radio" id="myhorario1" name="horario" required="" value="mes" checked=""><label for="myhorario1">Mes<img src="img/mes.png" alt=""></label>
+                        <input class="form-control" type="radio" id="myhorario2" name="horario" value="dia"><label for="myhorario2">Día<img src="img/dia.png" alt=""></label>
+                        <input class="form-control" type="radio" id="myhorario3" name="horario" value="hora"><label for="myhorario3">Hora<img src="img/hora.png " alt=""></label>
+                    </div>
+                </div>
+
+                <div class="container-info">
+                    <div class="form-item-title">
+                      <h3>Indica el precio.</h3>
+                    </div>
+                    <div class="container-sub-precio">
+                        <input onkeyup="validatePrecio()" id="precio" placeholder="precio" class="form-control" type="text" name="disponibilidad" style="border-color: rgb(33, 223, 255);">
+                        <span class="helper-text"></span>
+                    </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="step js-step">
+                <legend><h2>Características</h2></legend>
+                <div class="container-info">
+                    <div class="form-item-title">
+                        <h3>Tiene techo o cubierta?.</h3>
+                    </div>
+                    <div class="container-sub-cubierta ">
+                        <label class="radio"><input class="form-control" type="radio" name="cubierta" value="si" id="si" placeholder="" checked=""> <span>Si</span></label>
+                        <label class="radio"><input class="form-control" type="radio" name="cubierta" value="no" id="no" placeholder=""> <span>No</span></label>
+                        <span class="helper-text"></span>
+                    </div>
+                </div>
+
+                <div class="container-info">
+                    <div class="form-item-title">
+                      <h3>Como es el modo ingreso?.</h3>
+                    </div>
+                    <div class="container-sub-ingreso">
+                        <label class="radio"><input class="form-control" type="radio" name="ingreso" value="Portero" id="Portero" placeholder="" checked=""> <span>Portero</span></label>
+                        <label class="radio"><input class="form-control" type="radio" name="ingreso" value="Yo Abro" id="YoAbro" placeholder=""> <span>Yo Abro</span></label>
+                        <span class="helper-text"></span>
+                    </div>
+                </div>
+
+                <div class="container-info">
+                      <div class="form-item-title">
+                          <h3>Tipo de estacionamiento?.</h3>
+                      </div>
+                      <div class="container-sub-tipo-espacio">
+                          <input class="form-control" type="radio" id="myEspacio1" name="tipo_espacio" value="Departamento" placeholder="" checked=""><label for="myEspacio1">Departamento<img src="img/residencia.png" alt=""></label>
+                          <input class="form-control" type="radio" id="myEspacio2" name="tipo_espacio" value="Casa" placeholder=""><label for="myEspacio2">Casa<img src="img/casa.png" alt=""></label>
+                          <input class="form-control" type="radio" id="myEspacio3" name="tipo_espacio" value="Estacionamiento" placeholder=""><label for="myEspacio3">Estacionamiento<img src="img/estacionamiento.png" alt=""></label>
+                      </div>
+                </div>
+              </fieldset>
+
+
+              <fieldset class="step js-step">
+                  <legend><h2>Sobre mí</h2></legend>
+                  <div class="container-sobre-mi">
+                    
+                    <div class="input-group js-input-group input-grid-nombre">
+                        <span for="first_name">Nombre</span>
+                        <input type="text" name="first_name" id="first_name" class="form-control js-form-control" required>
+                    </div>
+                    <div class="input-group js-input-group input-grid-apellidos">
+                        <span for="last_name">Apellidos</span>
+                        <input type="text" name="last_name" id="last_name" class="form-control js-form-control" required>
+                    </div>
+                    <div class="input-group js-input-group input-grid-email">
+                        <span for="first_name">Email</span>
+                        <input type="text" name="first_name" id="first_name" class="form-control js-form-control" required>
+                    </div>
+                    <div class="input-group js-input-group input-grid-celular">
+                        <span for="last_name">Celular</span>
+                        <input type="text" name="last_name" id="last_name" class="form-control js-form-control" required>
+                    </div>
+                    <div class="input-group js-input-group input-grid-repite-contrasena">
+                        <span for="last_name">Fecha de nacimiento.</span>
+                        <input onkeyup="validateFecha()" id="fecha" placeholder="fecha" class="form-control" type="date" name="disponibilidad" style="border-color: rgb(33, 223, 255);">
+                        <span class="helper-text"></span>
+                    </div>
+                  </div>
+                    <div class="input-group js-input-group input-grid-contrasena">
+                        <span for="first_name">Contraseña</span>
+                        <input type="password" name="first_name" id="first_name" class="form-control js-form-control" required>
+                    </div>
+                    <div class="input-group js-input-group input-grid-repite-contrasena">
+                        <span for="last_name">Repite contraseña</span>
+                        <input type="password" name="last_name" id="last_name" class="form-control js-form-control" required>
+                    </div>
+              </fieldset>
+
+          </div>
+          <div class="input-group text-right">
+              <button type="button" class="btn-prev js-btn-prev">Anterior</button>
+              <button type="button" class="js-btn-next" data-step-text="Siguiente" data-final-step-text="Enviar">Siguiente</button>
+          </div>
+      </div>
+
+        
+    </form>
+
+  </div>
+  <div class="container-slide-image">
+    <div class="slide-img">
+    </div>
+  </div>
+
+</div>
+
+  <script  type="text/javascript" charset="utf-8" async defer>
+    class FormWizard {
+      constructor(prop_element = null, prop_currentStepIdx = 0) {
+          this.element = prop_element
+          this.steps = [...this.element.querySelectorAll('.js-step')]
+          this.formControls = [...this.element.querySelectorAll('.js-form-control')]
+          this.btnPrev = this.element.querySelector('.js-btn-prev')
+          this.btnNext = this.element.querySelector('.js-btn-next')
+          this.progressBar = this.element.querySelector('.js-progress-bar')
+          this.currentStepIdx = prop_currentStepIdx
+
+          this.init()
+      }
+
+      init() {
+          this.showStep(this.currentStepIdx)
+
+          this.addEvents()
+      }
+
+      showStep(prop_stepIdx = 0) {
+          const stepIdx = prop_stepIdx
+
+          this.steps[stepIdx].classList.add('is-active')
+          this.btnPrev.classList[stepIdx === 0 ? 'remove' : 'add']('is-active')
+          this.btnNext.innerText = this.btnNext.dataset[stepIdx === this.steps.length - 1 ? 'finalStepText' : 'stepText']
+
+          this.updateProgressBar(stepIdx)
+      }
+
+      prevNext(prop_value = 0) {
+          const value = prop_value
+
+          if (value === 1 && !this.validate()) {
+              return false
+          }
+
+          this.steps[this.currentStepIdx].classList.remove('is-active')
+          this.currentStepIdx += value
+
+          if (this.currentStepIdx >= this.steps.length) {
+              this.element.submit()
+              return false
+          }
+
+          this.showStep(this.currentStepIdx)
+      }
+
+      validate() {
+          const currentStepRequiredElements = [...this.steps[this.currentStepIdx].querySelectorAll('[required]')]
+          let valid = true
+
+          for (let element of currentStepRequiredElements) {
+              if (element.value === null || element.value.trim() === '') {
+                  element.closest('.js-input-group').classList.add('has-error')
+                  valid = false
+              }
+          }
+
+          return valid
+      }
+
+      clearErrors(e) {
+          e.target.closest('.js-input-group').classList.remove('has-error')
+      }
+
+      updateProgressBar(prop_stepIdx = 0) {
+    
+          const percentage = prop_stepIdx / ((this.steps.length) - 1)
+          this.progressBar.style.transform = `scaleX(${percentage === 0 ? '0' : percentage})`
+           this.progressBar.style.background = '#03d1a1'
+      }
+
+      addEvents() {
+          for (let formControl of this.formControls) {
+              formControl.addEventListener('keyup', this.clearErrors.bind(this))
+              formControl.addEventListener('change', this.clearErrors.bind(this))
+          }
+
+          this.btnPrev.addEventListener('click', this.prevNext.bind(this, -1))
+          this.btnNext.addEventListener('click', this.prevNext.bind(this, 1))
+      }
+  }
+
+  // ---
+
+  window.addEventListener('DOMContentLoaded', () => {
+      window.formWizardObjs = {}
+
+      const formWizards = [...document.querySelectorAll('.js-form-wizard')]
+
+      if (formWizards.length) {
+          for (let formWizard of formWizards) {
+              formWizardObjs[formWizard.id] = new FormWizard(formWizard)
+          }
+      }
+  })
+  </script>
+</body>
+</html>
